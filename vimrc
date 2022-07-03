@@ -42,10 +42,18 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Configuration for YouCompleteMe
-let ycm_enable_semantic_highlighting=1
+
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
+
+let g:ycm_enable_semantic_highlighting=1
+
 nnoremap <leader>gg :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gi :YcmCompleter GoToInclude<CR>
+nnoremap <leader>go :YcmCompleter GoToDocumentOutline<CR>
 
-nnoremap <leader>yfd <plug>(YCMFindSymbolInWorkspace)
-nnoremap <leader>yff <plug>(YCMFindSymbolInDocument)
+nmap <leader>fw <Plug>(YCMFindSymbolInWorkspace)
+nmap <leader>fd <Plug>(YCMFindSymbolInDocument)
