@@ -33,6 +33,9 @@ Plug 'ilyachur/cmake4vim'
 " Vim/Tmux key binding sharing for navigation
 Plug 'christoomey/vim-tmux-navigator'
 
+" Git plugin for Vim
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 syntax on
