@@ -4,6 +4,7 @@ set shiftwidth=4
 set expandtab
 set background=dark
 set relativenumber
+set number
 set hidden
 set nowrap
 
@@ -15,7 +16,7 @@ call plug#begin()
 Plug 'morhetz/gruvbox'
 
 " File browser
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 
 " Dynamic ctags invocation
 Plug 'craigemery/vim-autotag'
@@ -43,6 +44,12 @@ colorscheme gruvbox
 
 let mapleader = ' '
 
+nmap <leader>o :only<CR>
+
+" Configuration for NERDTree
+
+nmap <leader>n :NERDTreeFind <CR>
+
 " Configuration for fzf.vim
 
 nnoremap <leader>j :FZF <CR>
@@ -51,11 +58,13 @@ nnoremap <leader>j :FZF <CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
-"
+
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
+
+nmap <leader>l :BLines<CR>
 
 " Configuration for YouCompleteMe
 
@@ -70,6 +79,7 @@ nnoremap <leader>gg :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>go :YcmCompleter GoToDocumentOutline<CR>
 nnoremap <F2> :YcmCompleter GoToInclude<CR>
+nnoremap <F3> :Rg <C-R><C-W> <CR>
 nnoremap <F12> :YcmCompleter GoToReferences<CR>
 
 nmap <leader>fw <Plug>(YCMFindSymbolInWorkspace)
